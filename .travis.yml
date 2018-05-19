@@ -1,0 +1,8 @@
+language: java
+jdk:
+  - oraclejdk8
+services:
+  - mysql
+before_install:
+  - chmod +x mvnw
+  - mysql -u album_musical -p @l6um#mu2ic@l -e 'CREATE DATABASE IF NOT EXISTS album_musical;'
