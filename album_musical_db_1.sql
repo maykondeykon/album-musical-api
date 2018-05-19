@@ -21,29 +21,39 @@ CREATE TABLE IF NOT EXISTS artista
     nacionalidade varchar(255)
 );
 
-GRANT USAGE ON *.* TO `album_musical`@'localhost' IDENTIFIED BY '@l6um#mu2ic@l';
-GRANT UPDATE ON album_musical.* TO `album_musical`@'localhost' 
+GRANT USAGE ON *.* TO `album_musical`@'localhost' IDENTIFIED BY '@l6um#mu2ic@l'
 GO
-GRANT DELETE ON album_musical.* TO `album_musical`@'localhost' 
+GRANT DROP ON album_musical.* TO `album_musical`@'localhost'
 GO
-GRANT DROP ON album_musical.* TO `album_musical`@'localhost' 
+GRANT TRIGGER ON album_musical.* TO `album_musical`@'localhost'
 GO
-GRANT CREATE TEMPORARY TABLES ON album_musical.* TO `album_musical`@'localhost' 
-GO
-GRANT LOCK TABLES ON album_musical.* TO `album_musical`@'localhost' 
-GO
-GRANT SHOW VIEW ON album_musical.* TO `album_musical`@'localhost' 
-GO
-GRANT SELECT ON album_musical.* TO `album_musical`@'localhost' 
-GO
-GRANT INSERT ON album_musical.* TO `album_musical`@'localhost' 
-GO
-GRANT CREATE VIEW ON album_musical.* TO `album_musical`@'localhost' 
-GO
-GRANT CREATE ON album_musical.* TO `album_musical`@'localhost' 
-GO
-GRANT INDEX ON album_musical.* TO `album_musical`@'localhost' 
+GRANT INDEX ON album_musical.* TO `album_musical`@'localhost'
 GO
 GRANT ALTER ON album_musical.* TO `album_musical`@'localhost'
-
+GO
+GRANT SHOW VIEW ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT DELETE ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT CREATE ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT CREATE ROUTINE ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT UPDATE ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT CREATE TEMPORARY TABLES ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT INSERT ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT SELECT ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT LOCK TABLES ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT EVENT ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT CREATE VIEW ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT REFERENCES ON album_musical.* TO `album_musical`@'localhost'
+GO
+GRANT ALTER ROUTINE ON album_musical.* TO `album_musical`@'localhost'
 
