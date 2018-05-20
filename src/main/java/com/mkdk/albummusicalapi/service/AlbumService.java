@@ -2,6 +2,8 @@ package com.mkdk.albummusicalapi.service;
 
 import com.mkdk.albummusicalapi.model.Album;
 import com.mkdk.albummusicalapi.repository.AlbumRepository;
+import org.springframework.beans.BeanUtils;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -21,8 +23,9 @@ public class AlbumService {
         return albumRepository.findAlbumByNome(nome);
     }
 
-    public Optional<Album> getBy(Integer id) {
-        return albumRepository.findById(id);
+    public Album getBy(Integer id) {
+        Optional<Album> album = albumRepository.findById(id);
+        return album.orElseThrow(() -> new IllegalArgumentException("Album não encontrado"));
     }
 
     public List<Album> getAll() {
@@ -35,5 +38,17 @@ public class AlbumService {
 
     public void delete(Album album) {
         albumRepository.delete(album);
+    }
+
+    public void delete(Integer id) {
+        if (albumRepository.existsById(id))
+            albumRepository.deleteById(id);
+    }
+
+    public Album update(Integer id, Album album) {
+        Album atualiza = this.getBy(id);
+        BeanUtils.copyProperties(album, atualiza, "id");
+        this.save(atualiza);
+        return atualiza;
     }
 }
