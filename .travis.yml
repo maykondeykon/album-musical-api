@@ -6,3 +6,6 @@ services:
 before_install:
   - chmod +x mvnw
   - mysql -u root -e 'CREATE DATABASE IF NOT EXISTS album_musical;'
+
+before_script:
+  - echo "USE mysql;\nCREATE USER 'album_musical'@'localhost' IDENTIFIED BY '@l6um#mu2ic@l';\nGRANT ALL PRIVILEGES ON * . * TO 'album_musical'@'localhost';\nFLUSH PRIVILEGES;\n" | mysql -u root
