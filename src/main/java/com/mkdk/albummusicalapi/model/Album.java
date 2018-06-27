@@ -7,7 +7,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Data
-public class Album {
+
+public class Album implements ModelInterface{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_album")

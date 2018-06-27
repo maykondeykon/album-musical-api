@@ -20,7 +20,7 @@ public class AlbumService implements GenericServiceInterface<Album>{
     }
 
     public Album getBy(String nome) {
-        return albumRepository.findAlbumByNome(nome);
+        return albumRepository.findFirstByNome(nome);
     }
 
     public Album getBy(Integer id) {
@@ -37,7 +37,7 @@ public class AlbumService implements GenericServiceInterface<Album>{
     }
 
     public void delete(Album album) {
-        albumRepository.delete(album);
+        this.delete(album.getId());
     }
 
     public void delete(Integer id) {

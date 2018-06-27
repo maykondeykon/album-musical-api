@@ -1,5 +1,6 @@
 package com.mkdk.albummusicalapi.controller;
 
+import com.mkdk.albummusicalapi.model.ModelInterface;
 import com.mkdk.albummusicalapi.service.GenericServiceInterface;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -10,6 +11,7 @@ import java.util.List;
 public class GenericController<E> {
 
     private GenericServiceInterface<E> service;
+    private ModelInterface model;
 
     GenericController(GenericServiceInterface<E> service) {
         this.service = service;
@@ -29,13 +31,13 @@ public class GenericController<E> {
     }
 
     public ResponseEntity<?> novo(E entity) {
-        E novo = service.save(entity);
+        model = (ModelInterface) service.save(entity);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequestUri()
                 .path("/{id}")
-                .buildAndExpand(novo)//TODO retornar o id do objeto
+                .buildAndExpand(model.getId())
                 .toUri();
-        return ResponseEntity.created(uri).body(novo);
+        return ResponseEntity.created(uri).body(model);
     }
 
     public void excluir(Integer id) {

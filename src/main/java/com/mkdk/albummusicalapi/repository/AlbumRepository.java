@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AlbumRepository extends JpaRepository<Album, Integer> {
-    Album findAlbumByNome(String nome);
+    Album findFirstByNome(String nome);
 }
