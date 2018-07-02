@@ -3,7 +3,6 @@ package com.mkdk.albummusicalapi.service;
 import com.mkdk.albummusicalapi.model.Album;
 import com.mkdk.albummusicalapi.repository.AlbumRepository;
 import org.springframework.beans.BeanUtils;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -45,9 +44,9 @@ public class AlbumService implements GenericServiceInterface<Album>{
             albumRepository.deleteById(id);
     }
 
-    public Album update(Integer id, Album album) {
+    public Album update(Integer id, Album entity) {
         Album atualiza = this.getBy(id);
-        BeanUtils.copyProperties(album, atualiza, "id");
+        BeanUtils.copyProperties(entity, atualiza, "id");
         this.save(atualiza);
         return atualiza;
     }

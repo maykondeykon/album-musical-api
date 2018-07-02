@@ -1,7 +1,6 @@
 package com.mkdk.albummusicalapi.controller;
 
-import com.mkdk.albummusicalapi.model.Album;
-import com.mkdk.albummusicalapi.service.AlbumService;
+import com.mkdk.albummusicalapi.model.Musica;
 import com.mkdk.albummusicalapi.service.GenericServiceInterface;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,25 +10,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/albuns")
-public class AlbumController extends GenericController<Album> {
+@RequestMapping("/api/musicas")
+public class MusicaController extends GenericController<Musica> {
 
-    public AlbumController(GenericServiceInterface<Album> service) {
+    MusicaController(GenericServiceInterface<Musica> service) {
         super(service);
     }
 
     @GetMapping
-    public ResponseEntity<List<Album>> listar() {
+    public ResponseEntity<List<Musica>> listar() {
         return super.listar();
     }
 
     @GetMapping("/{id}")
-    public Album buscarPor(@PathVariable Integer id) {
+    public Musica buscarPor(@PathVariable Integer id) {
         return super.buscarPor(id);
     }
 
     @PostMapping
-    public ResponseEntity<?> novo(@Validated @RequestBody Album entity) {
+    public ResponseEntity<?> novo(@Validated @RequestBody Musica entity) {
         return super.novo(entity);
     }
 
@@ -41,7 +40,7 @@ public class AlbumController extends GenericController<Album> {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Album> atualizar(@PathVariable Integer id, @Validated @RequestBody Album entity) {
+    public ResponseEntity<Musica> atualizar(@PathVariable Integer id, @Validated @RequestBody Musica entity) {
         return super.atualizar(id, entity);
     }
 }

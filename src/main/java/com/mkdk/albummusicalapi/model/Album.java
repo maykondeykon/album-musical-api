@@ -4,11 +4,14 @@ import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
 @Entity
 @Data
+public class Album implements ModelInterface, Serializable {
 
-public class Album implements ModelInterface{
+    private static final long serialVersionUID = 4552409660132068170L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_album")

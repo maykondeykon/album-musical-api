@@ -31,13 +31,21 @@ public class ArtistaService implements GenericServiceInterface<Artista> {
         return Optional.of(artistaRepository.findAll()).orElse(new ArrayList<>());
     }
 
+    public List<Artista> getAllByNacionalidade(String nacionalidade) {
+        return artistaRepository.findAllByNacionalidadeOrderByNomeAsc(nacionalidade);
+    }
+
+    public List<Artista> getAllByNome(String nome) {
+        return artistaRepository.findAllByNomeOrderByNome(nome);
+    }
+
     public Artista save(Artista artista) {
         return artistaRepository.save(artista);
     }
 
-    public Artista update(Integer id, Artista artista) {
+    public Artista update(Integer id, Artista entity) {
         Artista atualiza = this.getBy(id);
-        BeanUtils.copyProperties(artista, atualiza, "id");
+        BeanUtils.copyProperties(entity, atualiza, "id");
         this.save(atualiza);
         return atualiza;
     }
