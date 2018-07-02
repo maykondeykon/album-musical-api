@@ -4,3 +4,6 @@ CREATE TABLE IF NOT EXISTS musica
     nome varchar(255) NOT NULL,
     duracao int
 );
+
+INSERT INTO musica (nome, duracao) VALUES ('Midnight Rider', 3);
+INSERT INTO musica (nome, duracao) VALUES ('Eagle fly free', 4);
