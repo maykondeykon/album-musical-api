@@ -1,10 +1,15 @@
 package com.mkdk.albummusicalapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -20,4 +25,11 @@ public class Artista implements ModelInterface, Serializable {
     @NotNull
     private String nome;
     private String nacionalidade;
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "artista_album",
+            joinColumns = @JoinColumn(name = "id_artista"),
+            inverseJoinColumns = @JoinColumn(name = "id_album"))
+    private List<Album> albuns = new ArrayList<>();
 }

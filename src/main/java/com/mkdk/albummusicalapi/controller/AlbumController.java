@@ -28,6 +28,11 @@ public class AlbumController extends GenericController<Album> {
         return super.buscarPor(id);
     }
 
+    @GetMapping("/artista/{artista}")
+    public ResponseEntity<List<Album>> listarPorArtista() {
+        return super.listar();
+    }
+
     @PostMapping
     public ResponseEntity<?> novo(@Validated @RequestBody Album entity) {
         return super.novo(entity);
