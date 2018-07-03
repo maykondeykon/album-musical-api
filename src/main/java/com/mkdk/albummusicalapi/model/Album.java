@@ -1,13 +1,14 @@
 package com.mkdk.albummusicalapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.Getter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Entity
 @Data
@@ -23,6 +24,9 @@ public class Album implements ModelInterface, Serializable {
     @NotNull
     private String nome;
     private Integer ano;
+    @Transient
+    @Getter
+    private Integer duracao;
 
     @ManyToMany
     @JoinTable(name = "artista_album",
@@ -35,4 +39,18 @@ public class Album implements ModelInterface, Serializable {
             joinColumns = @JoinColumn(name = "id_album"),
             inverseJoinColumns = @JoinColumn(name = "id_musica"))
     private List<Musica> musicas = new ArrayList<>();
+
+    @PostLoad
+    private void setDuracao() {
+        AtomicReference<Integer> duracaoInicial = new AtomicReference<>(0);
+
+        if (musicas.size() > 0) {
+            musicas.stream()
+                    .forEach(musica -> {
+                        duracaoInicial.updateAndGet(v -> v + musica.getDuracao());
+                    });
+        }
+
+        this.duracao = duracaoInicial.get();
+    }
 }
