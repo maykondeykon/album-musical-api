@@ -1,7 +1,6 @@
 package com.mkdk.albummusicalapi.service;
 
 import com.mkdk.albummusicalapi.model.Album;
-import com.mkdk.albummusicalapi.model.Artista;
 import com.mkdk.albummusicalapi.repository.AlbumRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;

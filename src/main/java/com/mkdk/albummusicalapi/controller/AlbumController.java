@@ -1,7 +1,6 @@
 package com.mkdk.albummusicalapi.controller;
 
 import com.mkdk.albummusicalapi.model.Album;
-import com.mkdk.albummusicalapi.model.Artista;
 import com.mkdk.albummusicalapi.service.AlbumService;
 import com.mkdk.albummusicalapi.service.GenericServiceInterface;
 import org.springframework.http.HttpStatus;
