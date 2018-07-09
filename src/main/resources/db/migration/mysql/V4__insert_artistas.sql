@@ -5,3 +5,4 @@ INSERT INTO artista (nome, nacionalidade) VALUES ('Wallisson Dourado', 'Brasil')
 INSERT INTO artista (nome, nacionalidade) VALUES ('Kai Hansen', 'Alemanha');
 INSERT INTO artista (nome, nacionalidade) VALUES ('Michael Kiske', 'Alemanha');
 INSERT INTO artista (nome, nacionalidade) VALUES ('Michael Weikath', 'Alemanha');
+INSERT INTO artista (nome, nacionalidade) VALUES ('Junior', 'Brasil');

@@ -1,2 +1,21 @@
-INSERT INTO autor_musica (id_artista, id_musica) VALUES (3, 1);
-INSERT INTO autor_musica (id_artista, id_musica) VALUES (5, 2);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (4, 1);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (3, 2);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (8, 2);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (3, 3);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (3, 4);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (4, 4);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (3, 5);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (3, 6);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (8, 6);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (3, 7);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (4, 7);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (4, 8);
+
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (5, 9);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (5, 10);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (5, 11);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (7, 12);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (5, 13);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (5, 14);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (5, 15);
+INSERT INTO autor_musica (id_artista, id_musica) VALUES (7, 15);
