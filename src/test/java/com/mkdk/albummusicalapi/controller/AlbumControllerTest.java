@@ -42,7 +42,7 @@ public class AlbumControllerTest {
     @Test
     public void listaAlbuns() {
         List<Album> albuns = albumService.getAll();
-        assertEquals(2, albuns.size());
+        assertEquals(4, albuns.size());
     }
 
     @Test
