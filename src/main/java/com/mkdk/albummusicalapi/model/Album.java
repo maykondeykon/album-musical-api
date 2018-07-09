@@ -53,4 +53,14 @@ public class Album implements ModelInterface, Serializable {
 
         this.duracao = duracaoInicial.get();
     }
+
+    public List<String> getParticipantes() {
+        List<String> artistas = new ArrayList<>();
+
+        participantes.stream().forEach(artista -> {
+            artistas.add(artista.getNome());
+        });
+
+        return artistas;
+    }
 }

@@ -32,4 +32,17 @@ public class Artista implements ModelInterface, Serializable {
             joinColumns = @JoinColumn(name = "id_artista"),
             inverseJoinColumns = @JoinColumn(name = "id_album"))
     private List<Album> albuns = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(name = "interprete_musica",
+            joinColumns = @JoinColumn(name = "id_artista"),
+            inverseJoinColumns = @JoinColumn(name = "id_musica"))
+    private List<Musica> musicasInterpretadas = new ArrayList<>();
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(name = "autor_musica",
+            joinColumns = @JoinColumn(name = "id_artista"),
+            inverseJoinColumns = @JoinColumn(name = "id_musica"))
+    private List<Musica> musicasComoAutor = new ArrayList<>();
 }
