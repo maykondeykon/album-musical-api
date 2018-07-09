@@ -1,6 +1,7 @@
 package com.mkdk.albummusicalapi.controller;
 
 import com.mkdk.albummusicalapi.model.Album;
+import com.mkdk.albummusicalapi.model.Artista;
 import com.mkdk.albummusicalapi.service.AlbumService;
 import com.mkdk.albummusicalapi.service.GenericServiceInterface;
 import org.springframework.http.HttpStatus;
@@ -14,8 +15,11 @@ import java.util.List;
 @RequestMapping("/api/albuns")
 public class AlbumController extends GenericController<Album> {
 
-    public AlbumController(GenericServiceInterface<Album> service) {
+    private AlbumService albumService;
+
+    public AlbumController(GenericServiceInterface<Album> service, AlbumService albumService) {
         super(service);
+        this.albumService = albumService;
     }
 
     @GetMapping
@@ -28,9 +32,14 @@ public class AlbumController extends GenericController<Album> {
         return super.buscarPor(id);
     }
 
-    @GetMapping("/artista/{artista}")
-    public ResponseEntity<List<Album>> listarPorArtista() {
-        return super.listar();
+    @GetMapping("/artista/{id}")
+    public ResponseEntity<List<Album>> listarPorArtista(@PathVariable Integer id) {
+        List<Album> list = albumService.getAllByArtista(id);
+        if (list.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(list);
+        }
     }
 
     @PostMapping

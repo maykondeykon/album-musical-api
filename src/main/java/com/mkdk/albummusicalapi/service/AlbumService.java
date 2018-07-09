@@ -1,6 +1,7 @@
 package com.mkdk.albummusicalapi.service;
 
 import com.mkdk.albummusicalapi.model.Album;
+import com.mkdk.albummusicalapi.model.Artista;
 import com.mkdk.albummusicalapi.repository.AlbumRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,10 @@ public class AlbumService implements GenericServiceInterface<Album>{
 
     public List<Album> getAll() {
         return Optional.of(albumRepository.findAll()).orElse(new ArrayList<>());
+    }
+
+    public List<Album> getAllByArtista(Integer artistaId){
+        return Optional.of(albumRepository.findAllByArtistaId(artistaId)).orElse(new ArrayList<>());
     }
 
     public Album save(Album album) {
