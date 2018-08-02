@@ -2,6 +2,7 @@ package com.mkdk.albummusicalapi.service;
 
 import com.mkdk.albummusicalapi.model.Album;
 import com.mkdk.albummusicalapi.repository.AlbumRepository;
+import com.mkdk.albummusicalapi.repository.filter.AlbumFilter;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AlbumService implements GenericServiceInterface<Album>{
+public class AlbumService implements GenericServiceInterface<Album> {
 
     private AlbumRepository albumRepository;
 
@@ -31,7 +32,7 @@ public class AlbumService implements GenericServiceInterface<Album>{
         return Optional.of(albumRepository.findAll()).orElse(new ArrayList<>());
     }
 
-    public List<Album> getAllByArtista(Integer artistaId){
+    public List<Album> getAllByArtista(Integer artistaId) {
         return Optional.of(albumRepository.findAllByArtistaId(artistaId)).orElse(new ArrayList<>());
     }
 
@@ -53,5 +54,9 @@ public class AlbumService implements GenericServiceInterface<Album>{
         BeanUtils.copyProperties(entity, atualiza, "id");
         this.save(atualiza);
         return atualiza;
+    }
+
+    public List<Album> pesquisa(AlbumFilter filter) {
+        return albumRepository.filtrar(filter);
     }
 }

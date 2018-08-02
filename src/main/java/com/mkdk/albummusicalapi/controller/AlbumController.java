@@ -1,6 +1,7 @@
 package com.mkdk.albummusicalapi.controller;
 
 import com.mkdk.albummusicalapi.model.Album;
+import com.mkdk.albummusicalapi.repository.filter.AlbumFilter;
 import com.mkdk.albummusicalapi.service.AlbumService;
 import com.mkdk.albummusicalapi.service.GenericServiceInterface;
 import org.springframework.http.HttpStatus;
@@ -21,7 +22,7 @@ public class AlbumController extends GenericController<Album> {
         this.albumService = albumService;
     }
 
-    @GetMapping
+    @GetMapping("/listar")
     public ResponseEntity<List<Album>> listar() {
         return super.listar();
     }
@@ -56,5 +57,10 @@ public class AlbumController extends GenericController<Album> {
     @PutMapping("/{id}")
     public ResponseEntity<Album> atualizar(@PathVariable Integer id, @Validated @RequestBody Album entity) {
         return super.atualizar(id, entity);
+    }
+
+    @GetMapping
+    public List<Album> pesquisar(AlbumFilter filter) {
+        return albumService.pesquisa(filter);
     }
 }

@@ -11,7 +11,4 @@ public class AlbumFilter {
     @Getter
     @Setter
     private Integer ano;
-    @Getter
-    @Setter
-    private Integer duracao;
 }

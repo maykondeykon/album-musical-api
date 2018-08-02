@@ -1,6 +1,7 @@
 package com.mkdk.albummusicalapi.repository;
 
 import com.mkdk.albummusicalapi.model.Album;
+import com.mkdk.albummusicalapi.repository.Album.AlbumRepositoryQuery;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -10,7 +11,7 @@ import java.util.List;
 
 
 @Repository
-public interface AlbumRepository extends JpaRepository<Album, Integer> {
+public interface AlbumRepository extends JpaRepository<Album, Integer>, AlbumRepositoryQuery {
     Album findFirstByNome(String nome);
 
     @Query(value = "select a.* from artista_album ab " +
