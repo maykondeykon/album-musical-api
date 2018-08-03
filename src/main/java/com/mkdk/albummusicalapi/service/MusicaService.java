@@ -2,6 +2,7 @@ package com.mkdk.albummusicalapi.service;
 
 import com.mkdk.albummusicalapi.model.Musica;
 import com.mkdk.albummusicalapi.repository.MusicaRepository;
+import com.mkdk.albummusicalapi.repository.filter.MusicaFilter;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
@@ -60,5 +61,9 @@ public class MusicaService implements GenericServiceInterface<Musica> {
     public void delete(Musica entity) {
         if (entity.getId() != null)
             this.delete(entity.getId());
+    }
+
+    public List<Musica> pesquisar(MusicaFilter filter){
+        return musicaRepository.filtrar(filter);
     }
 }
